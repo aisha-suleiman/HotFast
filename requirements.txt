@@ -1,0 +1,17 @@
+aiogram>=3.15,<4
+# Веб-слой для Vercel: вебхук Telegram и cron-эндпоинты (bot/web.py).
+fastapi>=0.115
+SQLAlchemy[asyncio]>=2.0.36
+alembic>=1.14
+asyncpg>=0.30
+aiosqlite>=0.20
+redis>=5.2
+pydantic>=2.10
+pydantic-settings>=2.7
+PyYAML>=6.0
+# База часовых поясов: у Windows и slim-образов Linux своей нет,
+# и ZoneInfo("Asia/Damascus") падает при старте.
+tzdata>=2024.2
+# Проверка TLS по хранилищу сертификатов ОС. Без неё Python на Windows не может
+# достроить цепочку до api.telegram.org и падает с CERTIFICATE_VERIFY_FAILED.
+truststore>=0.10

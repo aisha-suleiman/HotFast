@@ -1,0 +1,22 @@
+# Виртуальное окружение и кеши — образ ставит зависимости сам через requirements.txt
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Локальная разработка: SQLite-база, логи — в контейнере база уже Postgres
+*.db
+*.db-journal
+bot.log
+*.log
+
+# Версионирование и IDE
+.git/
+.gitignore
+.vscode/
+.idea/
+
+# Тесты и документация не нужны в образе, но не мешают — исключаем для скорости сборки
+tests/
+README.md

@@ -1,0 +1,60 @@
+# Меню заведения. Цены — в минорных единицах валюты из CURRENCY (куруши для TRY).
+# 5000 = 50 ₺. Заливка: py -m scripts.seed_menu
+#
+# Скрипт синхронизирует базу с этим файлом: что здесь есть — обновит, чего здесь нет —
+# уберёт из продажи. Поэтому чтобы снять блюдо с меню, достаточно удалить его отсюда.
+#
+# Цены заданы заведением: блюдо 120 ₺ (12000), дубль 140 ₺ (надбавка 20 ₺ = 2000).
+
+branches:
+  - slug: main
+    name_ar: الفرع الرئيسي
+    name_ru: Главный филиал
+    address_ar: إدلب، مركز المدينة
+    address_ru: Идлиб, центр города
+    phone: "+963900000000"
+    # Точка из Google Maps: City Centre, Идлиб. От неё считается вся зона доставки.
+    lat: 35.9317159
+    lon: 36.636137
+    sort: 1
+
+categories:
+  - slug: main
+    emoji: 🥙
+    name_ar: القائمة
+    name_ru: Меню
+    sort: 1
+    products:
+      - slug: shawarma
+        name_ar: شاورما
+        name_ru: Шаурма
+        desc_ar: دجاج مشوي، ثوم، مخلل، خبز صاج
+        desc_ru: Курица на гриле, чеснок, соленья, лепёшка
+        price: 12000
+        sort: 1
+        # Одна группа на выбор порции. min_select=1 и max_select=1 означают «ровно один
+        # вариант»: обычная порция предвыбрана, нажатие на дубль её заменяет.
+        option_groups: &portion
+          - name_ar: الحجم
+            name_ru: Порция
+            min_select: 1
+            max_select: 1
+            sort: 1
+            options:
+              - name_ar: عادي
+                name_ru: Обычная
+                price_delta: 0
+                sort: 1
+              - name_ar: دوبل
+                name_ru: Дубль
+                price_delta: 2000
+                sort: 2
+
+      - slug: doner
+        name_ar: دونر
+        name_ru: Донер
+        desc_ar: لحم دونر، بندورة، بصل، صلصة
+        desc_ru: Мясо донер, помидоры, лук, соус
+        price: 12000
+        sort: 2
+        option_groups: *portion

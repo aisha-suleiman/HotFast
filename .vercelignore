@@ -1,0 +1,9 @@
+.env
+.venv/
+tests/
+*.log
+*.db
+Dockerfile
+docker-compose.yml
+.dockerignore
+run.bat

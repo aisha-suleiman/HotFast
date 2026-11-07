@@ -1,0 +1,14 @@
+[project]
+name = "shawarma-bot"
+version = "0.1.0"
+description = "Telegram bot for shawarma delivery (Syria): AR/RU, ShamCash + cash, kitchen group workflow"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

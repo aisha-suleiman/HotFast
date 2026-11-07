@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/index.py": { "maxDuration": 60 }
+  },
+  "rewrites": [{ "source": "/(.*)", "destination": "/api/index" }],
+  "crons": [
+    { "path": "/cron/expire", "schedule": "0 21 * * *" },
+    { "path": "/cron/rates", "schedule": "0 6 * * *" }
+  ]
+}
